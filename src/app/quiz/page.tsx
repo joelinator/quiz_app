@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import confetti from "canvas-confetti";
 import { useRouter, useSearchParams } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
@@ -27,7 +27,7 @@ import { difficultyLabels, textFor } from "@/lib/i18n";
 import { cn, filterQuestions, formatDuration, pickLocalized, shuffle } from "@/lib/utils";
 import { AnswerRecord, Difficulty, Question, SavedSession } from "@/types";
 
-export default function QuizPage() {
+function QuizPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { language } = useSettings();
@@ -529,6 +529,20 @@ export default function QuizPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function QuizPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center text-slate-800 dark:text-slate-200">
+          Loading quiz...
+        </div>
+      }
+    >
+      <QuizPageContent />
+    </Suspense>
   );
 }
 

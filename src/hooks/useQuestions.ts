@@ -35,7 +35,7 @@ export const useQuestions = (): UseQuestionsResult => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const parseCsv = (csvText: string): Question[] => {
     const clean = csvText.replace(/^\uFEFF/, "");
-    const parsed = Papa.parse(clean, {
+    const parsed = Papa.parse<Record<string, string>>(clean, {
       delimiter: "~",
       header: true,
       skipEmptyLines: true,
@@ -51,12 +51,9 @@ export const useQuestions = (): UseQuestionsResult => {
     //console.log("CSV rows parsed", parsed.data.length);
     //console.log("CSV first row", parsed.data[0]);
 
-    const rows = parsed.data as Papa.ParseResult<string>["data"] as Record<
-      string,
-      string
-    >[];
+    const rows: Record<string, string>[] = parsed.data;
 
-    return rows.map((row) => {
+    return rows.map((row: Record<string, string>) => {
       const pick = (name: string) => (row[name] ?? "").trim();
       const options = Array.from({ length: 4 }).map((_, i) => ({
         text: {
