@@ -1,0 +1,53 @@
+#Context
+we want to help hight school students to prepare for a computer science competition.
+the competition is organized by ANTIC(THe Compagny I work in).
+
+#What?
+we will build a web app. which proposes quizes (multiple choise answer quetions) to the students. let them answer the quizs, and give them feedbacks(the true answer).
+
+#How?
+we have a bank of questions, with answers.
+we just pick in a certain matter, some of the questions and display them to the student.
+
+
+#some choices made.
+-- how to choose the questions to present to the students?
+  ** random?
+  ** let the student filter the type of questions he wants(filter by thematic/ level of difficulty).
+  ** a mix of the above.
+  
+-- how to give feedback.
+  ** tell the student immediately after he answer a question if he was right and if not, give him the answer to the question (with explanation?).
+
+  ** wait the student to answer all the questions before  showing him the questions he failed or correctly answered to. and provide the explanations for each question he failed.
+  
+  the first proposition, has the advantage that the student has feedback and can learn even if he doesn't finish the quiz.
+  the second proposition has the advantage that it may not discourage the student from continuing the quiz if he made a serie of incorrect responses. It keeps the suspense.
+
+will will choose the first one.
+
+-- show report?
+
+-- authentification or not?
+  ** do not authenticate the students. just ask them to enter some details(name/username, class, age) if not yet entered before the quiz start.
+
+  ** authenticate with a username and password when the user enters the app. this could help us track progress
+
+  for simplicity, we will not authenticate the users. we think that the primary focus is to provide a platform for students to practive before the competition. no need to authenticate them and this will ease the user experience.
+
+
+** we will cache data locally(the question and the score to display them even if there is no internet connection.
+-- we will use beautifull ui that is elegant for students and easy to use for them.
+we will propose black theme and clear theme. and also english and french. mode.
+
+we will also show hints for each question. and when the user selects a response, we will show a border to green on that response and display the explication if it is correct and if it is not correct, we use a border in red with explication. so, each answer/proposition for a quesiton has an "explication".
+each question has a thematic and a level of difficulty. we want the user to be able to filter by level of difficulty or by certain thematics.
+
+we will use beautifull icons to make the user experience intuitive.
+
+the questions will be stored in a csv/json file. we have about 200 questions. but at each session, we will select only <MaxQuesitons> questions. we set <MaxQuestions> to 50 for now.
+we should also have animations to make it fun. 
+the entire app should look like a quiz game rather than a formal learning platform, to keep it entertaining for students.
+but be carefull the app should be lightweight so it loads very fast. it should also be responsive.
+
+we use nextjs to realize the app and we will deploy on vercel for tests.

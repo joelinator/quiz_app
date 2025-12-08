@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --background: #05060c;
+  --foreground: #e5e7eb;
+  --card: #0b1221;
+  --card-foreground: #f8fafc;
+  --muted: #94a3b8;
+  --glow-cyan: 0 20px 60px rgba(56, 189, 248, 0.2);
+  --glow-emerald: 0 15px 40px rgba(52, 211, 153, 0.18);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --muted: #475569;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #334155 #0f172a;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+}
+
+.card-surface {
+  background: radial-gradient(circle at 20% 20%, #0ea5e910, transparent 40%),
+    radial-gradient(circle at 80% 0%, #22c55e14, transparent 35%),
+    linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(10, 12, 22, 0.9));
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  box-shadow: var(--glow-cyan);
+}
+
+.glass-card {
+  background: linear-gradient(
+      135deg,
+      rgba(15, 23, 42, 0.92),
+      rgba(10, 12, 22, 0.9)
+    ),
+    radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.12), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(244, 114, 182, 0.12), transparent 30%);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--glow-cyan);
+}
+
+[data-theme="light"] .glass-card {
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(148, 163, 184, 0.35);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+}

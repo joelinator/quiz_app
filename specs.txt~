@@ -1,0 +1,43 @@
+#Context
+we want to help hight school students to prepare for a computer science competition.
+the competition is organized by ANTIC(THe Compagny I work in).
+
+#What?
+we will build a web app. which proposes quizes (multiple choise answer quetions) to the students. let them answer the quizs, and give them feedbacks(the true answer).
+
+#How?
+we have a bank of questions, with answers.
+we just pick in a certain matter, some of the questions and display them to the student.
+
+
+#some choices made.
+-- how to choose the questions to present to the students?
+  ** random?
+  ** let the student filter the type of questions he wants(filter by thematic/ level of difficulty).
+  ** a mix of the above.
+  
+-- how to give feedback.
+  ** tell the student immediately after he answer a question if he was right and if not, give him the answer to the question (with explanation?).
+
+  ** wait the student to answer all the questions before  showing him the questions he failed or correctly answered to. and provide the explanations for each question he failed.
+  
+  the first proposition, has the advantage that the student has feedback and can learn even if he doesn't finish the quiz.
+  the second proposition has the advantage that it may not discourage the student from continuing the quiz if he made a serie of incorrect responses. It keeps the suspense.
+
+will will choose the first one.
+
+-- show report?
+
+-- authentification or not?
+  ** do not authenticate the students. just ask them to enter some details(name/username, class, age) if not yet entered before the quiz start.
+
+  ** authenticate with a username and password when the user enters the app. this could help us track progress
+
+  for simplicity, we will not authenticate the users. we think that the primary focus is to provide a platform for students to practive before the competition. no need to authenticate them and this will ease the user experience.
+
+
+
+
+
+
+
