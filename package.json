@@ -21,7 +21,9 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/canvas-confetti": "^1.6.4",
     "@types/node": "^20",
+    "@types/papaparse": "^5.2.7",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
