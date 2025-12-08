@@ -7,7 +7,7 @@ import { Question } from "@/types";
 
 const parseCsvFile = (filePath: string): Question[] => {
   const raw = fs.readFileSync(filePath, "utf8").replace(/^\uFEFF/, "");
-  const parsed = Papa.parse(raw, {
+  const parsed = Papa.parse<Record<string, string>>(raw, {
     delimiter: "~",
     header: true,
     skipEmptyLines: true,
@@ -17,12 +17,9 @@ const parseCsvFile = (filePath: string): Question[] => {
   if (parsed.errors?.length) {
     console.warn(`CSV parse errors in ${filePath}`, parsed.errors);
   }
-  const rows = parsed.data as Papa.ParseResult<string>["data"] as Record<
-    string,
-    string
-  >[];
+  const rows: Record<string, string>[] = parsed.data;
 
-  return rows.map((row) => {
+  return rows.map((row: Record<string, string>) => {
     const pick = (name: string) => (row[name] ?? "").trim();
     const options = Array.from({ length: 4 }).map((_, i) => ({
       text: {
